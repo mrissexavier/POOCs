@@ -8,10 +8,8 @@ namespace POOCs
 
         static void Main(string[] args)
         {
-            Triangulo x, y;
-
-            x = new Triangulo();
-            y = new Triangulo();
+            Triangulo x = new Triangulo();
+            Triangulo y = new Triangulo();
 
             Console.WriteLine("Entre com as medidas do triângulo X: ");
             x.LadoA = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
@@ -23,11 +21,14 @@ namespace POOCs
             y.LadoB = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             y.LadoC = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            double p = (x.LadoA + x.LadoB + x.LadoC) / 2.0;
-            double areaX = Math.Sqrt(p * (p - x.LadoA) * (p - x.LadoB) * (p - x.LadoC));
+            /* double p = (x.LadoA + x.LadoB + x.LadoC) / 2.0;
+             double areaX = Math.Sqrt(p * (p - x.LadoA) * (p - x.LadoB) * (p - x.LadoC)); */
 
-            p = (y.LadoA + y.LadoB + y.LadoC) / 2.0;
-            double areaY = Math.Sqrt(p * (p - y.LadoA) * (p - y.LadoB) * (p - y.LadoC));
+            /* p = (y.LadoA + y.LadoB + y.LadoC) / 2.0;
+             double areaY = Math.Sqrt(p * (p - y.LadoA) * (p - y.LadoB) * (p - y.LadoC)); */
+
+            double areaX = x.Area();
+            double areaY = y.Area();
 
             Console.WriteLine("Área de X = " + areaX.ToString("F4", CultureInfo.InvariantCulture));
             Console.WriteLine("Área de Y = " + areaY.ToString("F4", CultureInfo.InvariantCulture));
