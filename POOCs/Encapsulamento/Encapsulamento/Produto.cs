@@ -1,53 +1,51 @@
 ﻿using System.Globalization;
 namespace Construtor
 {
-    class Produto
+    internal class Produto
     {
         private string _nome;
-        private double _preco;
-        private int _quantidade;
 
-        public string Nome { get => _nome; set => _nome = value; }   
-        public double Preco { get => _preco; }
-        public int Quantidade { get => _quantidade; }
+        public string Nome { get => _nome; set => _nome = value; }
+        public double Preco { get; private set; }
+        public int Quantidade { get; private set; }
 
         public Produto(string nome, double preco, int quantidade)
         {
             _nome = nome;
-            _preco = preco;
+            Preco = preco;
             _quantidade = quantidade;
         }
 
         public Produto(string nome, double preco)
         {
             _nome = nome;
-            _preco = preco;
+            Preco = preco;
         }
 
 
 
         public double ValorTotalEmEstoque()
         {
-            return _preco * _quantidade;
+            return Preco * _quantidade;
         }
 
         public void AdicionarProdutos(int quantidade)
         {
-            _quantidade += quantidade;
+            Quantidade += quantidade;
         }
 
         public void RemoverProdutos(int quantidade)
         {
-            _quantidade -= quantidade;
+            Quantidade -= quantidade;
         }
 
         public override string ToString()
         {
             return _nome
             + ", $ "
-            + _preco.ToString("F2", CultureInfo.InvariantCulture)
+            + Preco.ToString("F2", CultureInfo.InvariantCulture)
             + ", "
-            + _quantidade
+            + Quantidade
             + " unidades, Total: $ "
             + ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture);
         }

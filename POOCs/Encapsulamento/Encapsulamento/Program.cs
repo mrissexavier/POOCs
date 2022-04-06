@@ -7,7 +7,7 @@ namespace Encapsulamento
     {
         static void Main(string[] args)
         {
-            Produto produto = new Produto("TV",  500.00, 10);
+            Produto produto = new("TV", 500.00, 10);
 
             produto.Nome = "TV 4K";
 
